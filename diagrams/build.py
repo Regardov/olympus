@@ -301,109 +301,109 @@ def erd():
         }, 1150, 825),
     ]
     repeated = {"batches", "raw_lots", "tech_cards", "equipment", "users"}
-    pair_ports = {
-        "erd-production": {
-            ("materials","recipe_items"): ((1,.37),(0,.30)),
-            ("materials","raw_lots"): ((.44,1),(.44,0)),
-            ("recipes","recipe_items"): ((0,.37),(1,.35)),
-            ("products","recipes"): ((0,.35),(1,.35)),
-            ("products","orders"): ((.64,1),(.64,0)),
-            ("products","tech_cards"): ((1,.40),(1,.45),[(1457,237),(1457,966)]),
-            ("orders","batches"): ((0,.30),(1,.22)),
-            ("raw_lots","batch_raw"): ((1,.36),(0,.43)),
-            ("batches","batch_raw"): ((0,.36),(1,.65)),
-            ("equipment","equipment_programs"): ((1,.32),(0,.30)),
-            ("equipment_programs","batch_programs"): ((1,.39),(0,.47)),
-            ("batches","batch_programs"): ((.55,1),(.55,0)),
-            ("tech_cards","batches"): ((0,.34),(1,.76),[(1060,934),(1060,704)]),
-        },
-        "erd-execution": {
-            ("tech_cards","card_steps"): ((1,.35),(0,.24)),
-            ("tech_cards","batches"): ((0,.74),(0,.18),[(32,261),(32,788)]),
-            ("card_steps","step_parameters"): ((1,.27),(0,.28)),
-            ("step_parameters","step_values"): ((1,.29),(0,.30)),
-            ("card_steps","executions"): ((1,.84),(0,.16),[(720,327),(720,564)]),
-            ("equipment","card_steps"): ((.82,0),(.18,1),[(298,387),(449,387)]),
-            ("equipment","telemetry"): ((1,.44),(0,.29)),
-            ("batches","telemetry"): ((1,.15),(0,.68),[(372,779),(372,561)]),
-            ("batches","executions"): ((1,.23),(0,.69),[(693,802),(693,687)]),
-            ("batches","incidents"): ((1,.33),(.20,0),[(823,831)]),
-            ("batches","events"): ((1,.64),(0,.28)),
-            ("executions","step_values"): ((1,.12),(.51,1),[(1089,555),(1089,404),(1291,404)]),
-            ("executions","deviations"): ((1,.52),(0,.38)),
-            ("step_parameters","deviations"): ((.79,1),(.18,0),[(995,461),(1195,461)]),
-            ("executions","incidents"): ((.48,1),(.48,0)),
-            ("events","notifications"): ((.87,1),(0,.73),[(649,1150),(1105,1150),(1105,985)]),
-        },
-        "erd-lab": {
-            ("raw_lots","lab_tests"): ((1,.48),(0,.20),[(436,289),(436,489)]),
-            ("batches","lab_tests"): ((1,.40),(0,.48)),
-            ("lab_tests","lab_results"): ((1,.19),(0,.40)),
-            ("lab_specs","lab_results"): ((.55,1),(.55,0)),
-            ("lab_tests","lab_decisions"): ((1,.76),(0,.35),[(867,675),(867,778)]),
-            ("users","lab_decisions"): ((1,.32),(0,.77)),
-            ("users","lab_tests"): ((.51,0),(.51,1)),
-            ("users","sessions"): ((1,.73),(0,.50)),
-            ("departments","users"): ((1,.51),(0,.22)),
-            ("roles","users"): ((1,.53),(0,.69)),
-        },
-        "erd-inspections": {
-            ("inspection_routes","inspection_points"): ((1,.46),(0,.28)),
-            ("inspection_routes","inspections"): ((.52,1),(.52,0)),
-            ("inspection_points","inspection_parameters"): ((1,.28),(0,.28)),
-            ("inspection_points","inspection_checks"): ((.50,1),(.50,0)),
-            ("inspections","inspection_checks"): ((1,.30),(0,.34)),
-            ("inspection_checks","inspection_readings"): ((1,.24),(0,.36)),
-            ("inspection_parameters","inspection_readings"): ((.50,1),(.50,0)),
-        },
-    }
+    # Use a spacious grid and route each relationship between its actual key rows.
+    # Orthogonal routing avoids table interiors and penalizes shared wire segments.
+    from heapq import heappush, heappop
     marks = {"one": "ERmandOne", "optional": "ERzeroToOne", "many": "ERzeroToMany"}
     for key, tab, title, positions, w, h in layouts:
-        sheet = Sheet(key, tab, title, w, h, "Физическая схема SQLite · ключи и кратности связей")
-        vertices, references = {}, []
-        for table, (x, y) in positions.items():
-            fields = db.execute(f"PRAGMA table_info({table})").fetchall()
+        positions = {t: (round(x * 1.35 / 10) * 10 + 60,
+                         round((y - 140) * 1.45 / 10) * 10 + 180)
+                     for t, (x, y) in positions.items()}
+        width = 330
+        info = {t: db.execute(f"PRAGMA table_info({t})").fetchall() for t in positions}
+        rects = {t: (x, y, width, 50 + 20 * len(info[t])) for t, (x,y) in positions.items()}
+        w = max(x + tw for x,y,tw,th in rects.values()) + 140
+        h = max(y + th for x,y,tw,th in rects.values()) + 160
+        sheet = Sheet(key, tab, title, w, h, "Физическая схема SQLite · связи между ключами")
+        vertices, references, rows = {}, [], {}
+        for table, (x, y, tw, th) in rects.items():
+            fields = info[table]
             fks = {fk[3]:fk for fk in db.execute(f"PRAGMA foreign_key_list({table})")}
             header = "#284651" if table not in repeated else "#426786"
-            attrs = []
-            for _, col, datatype, not_null, _, primary in fields:
+            body = sheet.box("", x, y, tw, th, fill="#FFFFFF", stroke="#9CB5BD",
+                             shape="rounded=0;")
+            vertices[table] = body
+            sheet.box("<b>"+table+"</b>", x, y, tw, 33, fill=header, stroke=header, size=14,
+                      shape="rounded=0;", extra="align=left;spacingLeft=10;fontColor=#FFFFFF;")
+            for i, (_, col, datatype, not_null, _, primary) in enumerate(fields):
                 fk = fks.get(col)
                 target = fk[2] if fk else None
                 kind = ("PK" if primary else "") + (" / " if primary and fk else "") + ("FK" if fk else "")
                 desc = (" → " + target) if target and target not in positions else ""
                 suffix = " ?" if not not_null and not primary else ""
-                attrs.append(f'<span style="color:{BLUE}"><b>{kind}</b></span> {col} <span style="color:{MUTED}">{datatype}{suffix}{escape(desc)}</span>')
+                row_y = y + 40 + i * 20
+                rows[table,col] = (row_y + 10, (row_y + 10 - y) / th)
+                label = f'<b style="color:{BLUE}">{kind}</b> {col} <span style="color:{MUTED}">{datatype}{suffix}{escape(desc)}</span>'
+                sheet.box(label, x+1, row_y, tw-2, 20, fill="#F2F7FA" if kind else "#FFFFFF",
+                          stroke="none", size=12, shape="rounded=0;",
+                          extra="align=left;spacingLeft=10;spacing=0;connectable=0;")
                 if target in positions and fk[1] == 0:
-                    references.append((target, table, col, bool(not_null)))
-            content="<div style='line-height:20px'>" + "<br>".join(attrs) + "</div>"
-            height = 38 + 20 * len(fields) + 14
-            body = sheet.box(content, x, y, 290, height, fill="#FCFEFE", stroke="#9CB5BD", size=12,
-                             shape="rounded=0;", extra="align=left;verticalAlign=top;spacingTop=35;spacingLeft=11;")
-            sheet.box("<b>"+table+"</b>", x, y, 290, 33, fill=header, stroke=header, size=14,
-                      shape="rounded=0;", extra="align=left;spacingLeft=10;fontColor=#FFFFFF;")
-            vertices[table] = body
-        groups = defaultdict(list)
-        for source, target, field, mandatory in references:
-            groups[source, target].append((field, mandatory))
-        for (source, target), fields in groups.items():
-            for i, (field, mandatory) in enumerate(fields):
-                if len(fields) > 1:
-                    if (source,target) == ("recipes","batches"):
-                        ports = ((.31 + i*.36,1),(.31 + i*.36,0))
-                    else:
-                        # Multiple audit references share layout space while each FK stays visible in the table.
-                        if i:
-                            continue
-                        ports = pair_ports[key].get((source,target), ((1,.58),(0,.60)))
-                    label = field if (source,target) == ("recipes","batches") else " / ".join(f for f,_ in fields)
-                else:
-                    ports = pair_ports[key].get((source,target), ((.50,1),(.50,0)))
-                    label = "партия сырья" if field == "raw_lot_id" and target == "lab_tests" else ""
-                start = marks["one" if mandatory else "optional"]
-                end = marks["optional" if (target, field) == ("lab_decisions", "test_id") else "many"]
-                path = ports[2] if len(ports) > 2 else ()
-                sheet.edge(vertices[source], vertices[target], value=label, exit_at=ports[0], entry_at=ports[1],
-                           points=path, style=f"startArrow={start};endArrow={end};startSize=13;endSize=13;strokeWidth=1.3;fontSize=11;")
+                    parent_col = fk[4] or next(f[1] for f in info[target] if f[5] == 1)
+                    composite = [f[3] for f in fks.values() if f[0] == fk[0]]
+                    label = " + ".join(reversed(composite)) if len(composite)>1 else col
+                    references.append((target, table, parent_col, col, bool(not_null),label))
+        # Grid coordinates are integer multiples of ten pixels. Leave a clear
+        # corridor around all cards, including the endpoints of each connector.
+        blocked = set()
+        for x,y,tw,th in rects.values():
+            for gx in range(x//10-2,(x+tw)//10+3):
+                for gy in range(y//10-2,(y+th)//10+3):
+                    blocked.add((gx,gy))
+        used = set()
+        segments = set()
+        def port(table, col, side):
+            x,y,tw,th = rects[table]
+            py, fraction = rows[table,col]
+            px = x if side == 0 else x+tw
+            return (px//10 + (-3 if side == 0 else 3), py//10), (side,fraction)
+        def route(start, end):
+            q = [(0,0,start, -1)]
+            costs = {(start,-1):0}
+            prev = {}
+            while q:
+                _, g, pos, direction = heappop(q)
+                state = (pos,direction)
+                if g != costs.get(state):
+                    continue
+                if pos == end:
+                    path = [pos]
+                    while state in prev:
+                        state = prev[state]
+                        path.append(state[0])
+                    return g, path[::-1]
+                for d,(dx,dy) in enumerate(((1,0),(-1,0),(0,1),(0,-1))):
+                    nxt = (pos[0]+dx,pos[1]+dy)
+                    if not (3 <= nxt[0] <= w//10-3 and 14 <= nxt[1] <= h//10-9) or nxt in blocked:
+                        continue
+                    seg = tuple(sorted((pos,nxt)))
+                    ng = g+1+(8 if direction not in (-1,d) else 0)+(30 if seg in segments else 0)+(9 if nxt in used else 0)
+                    ns = (nxt,d)
+                    if ng >= costs.get(ns,float("inf")):
+                        continue
+                    costs[ns] = ng
+                    prev[ns] = state
+                    heuristic = abs(nxt[0]-end[0])+abs(nxt[1]-end[1])
+                    heappush(q,(ng+heuristic,ng,nxt,d))
+            return float("inf"), []
+        for source,target,pk,fk,mandatory,label in references:
+            opts = []
+            for a in (0,1):
+                for b in (0,1):
+                    start, exit_at = port(source,pk,a)
+                    end, entry_at = port(target,fk,b)
+                    cost,path = route(start,end)
+                    opts.append((cost,path,exit_at,entry_at))
+            cost,path,exit_at,entry_at = min(opts,key=lambda o:o[0])
+            assert path, (source,target,fk)
+            used.update(path)
+            segments.update(tuple(sorted((a,b))) for a,b in zip(path,path[1:]))
+            bends = [path[0]] + [p for a,p,b in zip(path,path[1:],path[2:])
+                           if (p[0]-a[0],p[1]-a[1]) != (b[0]-p[0],b[1]-p[1])] + [path[-1]]
+            end_mark = marks["optional" if (target,fk)==("lab_decisions","test_id") else "many"]
+            start_mark = marks["one" if mandatory else "optional"]
+            sheet.edge(vertices[source],vertices[target],value=label if " + " in label else "",
+                       exit_at=exit_at,entry_at=entry_at,points=[(x*10,y*10) for x,y in bends],
+                       style=f"edgeStyle=segmentEdgeStyle;rounded=0;jettySize=auto;jumpStyle=arc;jumpSize=8;startArrow={start_mark};endArrow={end_mark};startSize=11;endSize=11;strokeWidth=1.5;fontSize=11;")
         sheet.label("PK — первичный ключ   ·   FK — внешний ключ   ·   ? — NULL   ·   → имя таблицы — связь на другом листе",
                     42,h-53,w-84,25,13,color=MUTED)
     db.close()
@@ -482,3 +482,4 @@ if __name__ == "__main__":
     wireframe()
     ET.indent(file, space="  ")
     ET.ElementTree(file).write(ROOT / "diagrams" / "Ceramika.drawio", encoding="utf-8", xml_declaration=True)
+
