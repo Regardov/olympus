@@ -87,86 +87,146 @@ class Sheet:
 
 
 def use_cases():
-    s = Sheet("uc", "UML · Прецеденты", "Диаграмма вариантов использования", 2180, 2050)
-    s.box("", 430, 130, 1510, 1810, fill="#F8FBFC", stroke="#9FB3BD", shape="rounded=0;")
-    s.label("Граница системы Ceramika", 465, 145, 1000, 36, 22, True)
+    """Editable transcription of USE_CASE_for_championship.pdf (relationships unchanged)."""
+    s = Sheet("uc", "UML · Прецеденты", "Диаграмма вариантов использования", 2820, 2760,
+              "Система управления производством керамической плитки")
+    s.box("", 290, 130, 2240, 2510, fill="#FBFCFE", stroke="#A4B5BF", shape="rounded=0;")
+    s.label("Ceramika · граница системы", 330, 145, 2000, 35, 22, True)
+    # Coordinates are in three separated columns; shared use cases form the central column.
+    cases = {
+        "archive": ("Архивировать<br>устаревшие версии", 370, 420),
+        "compose": ("Создавать/изменять<br>состав рецептур", 370, 220),
+        "approve": ("Утверждать новый<br>состав рецептур", 1030, 220),
+        "order": ("Создавать<br>производственный заказ", 370, 620),
+        "form": ("Формировать<br>технологические карты", 370, 820),
+        "cards": ("Получать<br>технологические карты", 1030, 430),
+        "equipment": ("Настраивать параметры<br>работы оборудования", 1030, 630),
+        "batch": ("Создание<br>производственной партии", 1030, 830),
+        "recipes": ("Получать рецептуры", 1030, 1030),
+        "deviations": ("Анализировать<br>отклонения и результаты", 1030, 1230),
+        "analysis": ("Выполнять анализ<br>готовых\\входных партий", 1030, 1430),
+        "login": ("Авторизоваться", 1030, 1630),
+        "results": ("Вводить результаты<br>измерений", 1030, 1830),
+        "facts": ("Вводить фактические значения<br>и отмену выполнения операций", 1030, 2030),
+        "components": ("Загружать компоненты<br>в соответствии с рецептурой", 1030, 2230),
+        "control": ("Контролировать параметры<br>керамической массы и глазури", 1030, 2430),
+        "raw": ("Получать партии сырья", 370, 1430),
+        "test": ("Создавать испытание", 370, 2030),
+        "decision": ("Принимать решение о допуске<br>или блокировке партий", 370, 2430),
+        "settings": ("Управлять настройками<br>системы", 1890, 220),
+        "users": ("Управлять пользователями", 1890, 420),
+        "roles": ("Управлять ролями", 1890, 620),
+        "production": ("Контролировать процесс<br>производства", 1890, 900),
+        "report": ("Формировать отчёты", 1890, 1330),
+        "steps": ("Выполнять шаги<br>технологической карты", 1890, 2430),
+    }
+    actors = {
+        "tech": ("Технолог", 95, 660, "#7952A3", ("archive","compose","order","cards","form","batch","recipes","deviations","login")),
+        "lab": ("Лаборант", 95, 1930, "#526573", ("raw","analysis","login","results","facts","components","control","test","decision")),
+        "admin": ("Администратор", 2600, 380, "#3E6DA9", ("settings","users","roles","login")),
+        "master": ("Мастер смены", 2600, 960, "#42834F", ("production","recipes","login")),
+        "specialist": ("Специалист", 2600, 1460, "#B07B18", ("report","recipes","deviations","analysis","login","results")),
+        "operator": ("Оператор линии в цехе", 2600, 2100, "#B7484D", ("cards","equipment","batch","recipes","login","facts","components","control","steps")),
+    }
+    cw, ch, aw, ah = 440, 126, 100, 140
+    nodes = {}
+    boxes = {}
+    for key,(label,x,y) in cases.items():
+        fill = "#EEF4FA" if key in ("compose","approve","archive","order","form","settings","users","roles") else "#FFFFFF"
+        nodes[key] = s.box(label,x,y,cw,ch,fill=fill,stroke="#426273",size=20,
+                           shape="ellipse;",extra="strokeWidth=1.8;spacing=8;")
+        boxes[key] = (x,y,cw,ch)
+    for key,(label,x,y,color,targets) in actors.items():
+        nodes[key] = s.box(label,x,y,aw,ah,fill="#FFFFFF",stroke=color,size=18,
+                           shape="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;",
+                           extra=f"strokeWidth=2.2;fontColor={color};fontStyle=1;")
+        boxes[key] = (x,y,aw,ah)
 
-    def actor(label, x, y):
-        return s.box(label, x, y, 94, 116, fill="#FFFFFF", stroke=INK, size=17,
-                     shape="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;")
-
-    def case(label, x, y, color=TEAL, shade=TEAL_BG):
-        return s.box(label, x, y, 350, 86, fill=shade, stroke=color, size=16, shape="ellipse;")
-
-    def section(label, y, color):
-        s.label(label, 490, y, 1350, 28, 17, True, color=color)
-        s.box("", 490, y+34, 1390, 2, fill="#DCE7E8", stroke="none", size=1)
-
-    employee = actor("Сотрудник", 215, 195)
-    tech = actor("Технолог", 215, 490)
-    lab = actor("Лаборант", 215, 905)
-    operator = actor("Оператор линии", 215, 1310)
-    master = actor("Мастер смены", 215, 1695)
-    sensor = actor("Источник телеметрии", 2015, 1760)
-
-    login = case("Войти в систему", 530, 210, BLUE, BLUE_BG)
-    section("01 · Нормативы и производство", 325, BLUE)
-    recipe = case("Утвердить версии рецептур<br>и технологической карты", 530, 385, BLUE, BLUE_BG)
-    launch = case("Сформировать<br>и запустить партию", 530, 500, BLUE, BLUE_BG)
-    monitor = case("Анализировать журнал<br>и обработать инцидент", 530, 615, BLUE, BLUE_BG)
-    check_ready = case("Проверить готовность партии<br>и действующие нормативы", 1080, 500, BLUE, BLUE_BG)
-    report = case("Экспортировать отчёт<br>о выпуске партии", 1080, 615, BLUE, BLUE_BG)
-
-    section("02 · Лабораторный контроль", 745, TEAL)
-    appoint = case("Назначить испытание", 530, 805)
-    measure_lab = case("Внести измерения<br>и завершить испытание", 530, 920)
-    decision = case("Допустить или<br>заблокировать партию", 530, 1035)
-    check_lab = case("Проверить готовность<br>испытания и нормативы", 1080, 1035)
-
-    section("03 · Исполнение технологического маршрута", 1165, TEAL)
-    browse = case("Открыть маршрут партии", 530, 1225)
-    execute = case("Начать и завершить<br>операцию", 530, 1340)
-    incident = case("Зарегистрировать инцидент", 530, 1455, GOLD, GOLD_BG)
-    values = case("Проверить факт<br>и записать событие", 1080, 1340)
-    live = case("Просмотреть температуру<br>по зонам печи", 1080, 1225, GOLD, GOLD_BG)
-
-    section("04 · Мобильный обход и телеметрия", 1575, GOLD)
-    inspect = case("Выполнить обход линии", 530, 1635)
-    readings = case("Внести показания<br>контрольных точек", 1080, 1635)
-    issue = case("Добавить замечание", 1080, 1750, GOLD, GOLD_BG)
-    finish = case("Завершить обход<br>и сформировать отчёт", 530, 1780)
-    telemetry = case("Передать показания печи", 1530, 1775, GOLD, GOLD_BG)
-
-    assoc = "strokeWidth=1.7;endArrow=none;"
-    dependency = "dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;"
-    general = "endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;"
-    # A common actor inherits authentication; specialised roles use their own operations.
-    s.edge(employee, login, style=assoc, exit_at=(1,.5), entry_at=(0,.5))
-    for actor_id, y, lane, entry in (
-        (tech,548,175,.64), (lab,963,145,.52),
-        (operator,1368,115,.40), (master,1753,85,.28)
-    ):
-        s.edge(actor_id, employee, style=general, exit_at=(0,.5), entry_at=(0,entry),
-               points=[(lane,y),(lane,195+116*entry)])
-
-    for source, targets in (
-        (tech,(recipe,launch,monitor)), (lab,(appoint,measure_lab,decision)),
-        (operator,(browse,execute,incident)), (master,(inspect,finish))
-    ):
-        for target in targets:
-            s.edge(source,target,style=assoc,exit_at=(1,.5),entry_at=(0,.5))
-    s.edge(tech, report, style=assoc, exit_at=(1,.80), entry_at=(0,.5),
-           points=[(365,583),(365,730),(1000,730),(1000,658)])
-    s.edge(operator, live, style=assoc, exit_at=(1,.15), entry_at=(0,.5),
-           points=[(385,1327),(385,1205),(1010,1205),(1010,1268)])
-    s.edge(operator, inspect, style=assoc, exit_at=(1,.85), entry_at=(0,.5),
-           points=[(375,1409),(375,1678)])
-    s.edge(sensor,telemetry,style=assoc,exit_at=(0,.5),entry_at=(1,.5))
-    for source,target in ((launch,check_ready),(decision,check_lab),(execute,values),(inspect,readings)):
-        s.edge(source,target,value="«include»",style=dependency,exit_at=(1,.5),entry_at=(0,.5))
-    s.edge(issue,readings,value="«extend»",style=dependency,exit_at=(.5,0),entry_at=(.5,1))
-    s.label("Сплошная линия — участие актёра  ·  Пустой треугольник — обобщение  ·  «include» — обязательный сценарий  ·  «extend» — условное расширение",
-            40, 1970, 2100, 32, 15, color=MUTED)
+    # Straight associations whenever possible, with carefully separated
+    # attachment points. If a line would cross another use case, route it
+    # orthogonally through the free space around that use case instead.
+    from math import sqrt
+    from heapq import heappush, heappop
+    def intersects(a,b,rect,pad=8):
+        x,y,w,h = rect
+        # Liang–Barsky segment intersection against an inflated rectangle.
+        t0,t1 = 0.,1.
+        dx,dy=b[0]-a[0],b[1]-a[1]
+        for p,q in ((-dx,a[0]-x+pad),(dx,x+w+pad-a[0]),(-dy,a[1]-y+pad),(dy,y+h+pad-a[1])):
+            if p==0:
+                if q<0:return False
+            elif p<0:t0=max(t0,q/p)
+            else:t1=min(t1,q/p)
+            if t0>t1:return False
+        return True
+    def clear(a,b,src,dst):
+        return not any(intersects(a,b,r) for k,r in boxes.items() if k not in (src,dst))
+    used=set()
+    def routing(a,b,src,dst):
+        # 20px grid, 20px clearance around all nodes; avoid reusing tracks.
+        grid=20
+        start=tuple(round(v/grid) for v in a); end=tuple(round(v/grid) for v in b)
+        blocked=set()
+        for k,(x,y,w,h) in boxes.items():
+            for ix in range(int((x-12)//grid),int((x+w+12)//grid)+1):
+                for iy in range(int((y-12)//grid),int((y+h+12)//grid)+1):
+                    blocked.add((ix,iy))
+        blocked.discard(start);blocked.discard(end)
+        heap=[(0,0,start,-1)]; best={(start,-1):0}; prev={}
+        while heap:
+            _,g,p,d=heappop(heap)
+            state=(p,d)
+            if best[state]!=g:continue
+            if p==end:
+                path=[p]
+                while state in prev:
+                    state=prev[state];path.append(state[0])
+                path.reverse()
+                used.update(tuple(sorted((u,v))) for u,v in zip(path,path[1:]))
+                return [(p[0]*grid,p[1]*grid) for i,p in enumerate(path) if i==0 or i==len(path)-1 or
+                        (p[0]-path[i-1][0],p[1]-path[i-1][1]) != (path[i+1][0]-p[0],path[i+1][1]-p[1])]
+            for nd,(dx,dy) in enumerate(((1,0),(-1,0),(0,1),(0,-1))):
+                np=(p[0]+dx,p[1]+dy)
+                if np in blocked or not(3<=np[0]<=137 and 10<=np[1]<=130):continue
+                ng=g+1+(8 if d not in (-1,nd) else 0)+(12 if tuple(sorted((p,np))) in used else 0)
+                ns=(np,nd)
+                if ng>=best.get(ns,float("inf")):continue
+                best[ns]=ng;prev[ns]=state
+                heappush(heap,(ng+abs(np[0]-end[0])+abs(np[1]-end[1]),ng,np,nd))
+        raise ValueError((src,dst))
+    target_actors={key:[] for key in cases}
+    for key,(_,_,_,_,targets) in actors.items():
+        for t in targets:target_actors[t].append(key)
+    for src,(_,x,y,color,targets) in actors.items():
+        left=x<290
+        sorted_targets=sorted(targets,key=lambda t:cases[t][2])
+        for i,dst in enumerate(sorted_targets):
+            tx,ty,tw,th=boxes[dst]
+            exit_y=.15+.7*i/max(1,len(targets)-1)
+            same_side=sorted((k for k in target_actors[dst] if (actors[k][1]<290)==left),key=lambda k:actors[k][2])
+            entry_y=.30+.40*same_side.index(src)/max(1,len(same_side)-1) if len(same_side)>1 else .5
+            # Ellipse's perimeter intersection at the chosen vertical fraction.
+            entry_x=(1-sqrt(1-(2*entry_y-1)**2))/2
+            if not left:entry_x=1-entry_x
+            a=(x+aw if left else x,y+ah*exit_y)
+            b=(tx+tw*entry_x,ty+th*entry_y)
+            points=[]
+            style=f"strokeColor={color};strokeWidth=1.8;endArrow=none;entryPerimeter=0;"
+            if not clear(a,b,src,dst):
+                a_stub=(a[0]+(40 if left else -40),a[1])
+                b_stub=(tx-40 if left else tx+tw+40,b[1])
+                # Grid entry may not share exact y; add horizontal terminal stubs.
+                path=routing(a_stub,b_stub,src,dst)
+                points=[a_stub,(path[0][0],a_stub[1]),*path,(path[-1][0],b_stub[1]),b_stub]
+                points=[p for i,p in enumerate(points) if not i or p!=points[i-1]]
+                style+="edgeStyle=segmentEdgeStyle;rounded=0;jumpStyle=arc;jumpSize=7;"
+            s.edge(nodes[src],nodes[dst],style=style,exit_at=(1 if left else 0,exit_y),
+                   entry_at=(entry_x,entry_y),points=points)
+    s.edge(nodes["approve"],nodes["compose"],value="«extend»",
+           style="dashed=1;endArrow=open;endFill=0;strokeColor=#344554;strokeWidth=1.8;fontSize=18;",
+           exit_at=(0,.5),entry_at=(1,.5))
+    s.label("Цвет линии соответствует актёру · Связи и направления сохранены из исходной диаграммы",
+            40,2670,2720,36,17,color=MUTED)
 
 
 def classes():
