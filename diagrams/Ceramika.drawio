@@ -1,111 +1,243 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
   <diagram id="uc" name="UML · Прецеденты">
-    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1380" pageHeight="980" background="#FFFFFF">
+    <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2180" pageHeight="2050" background="#FFFFFF">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="c1" value="Диаграмма вариантов использования" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=30;fontStyle=1;fontColor=#20343D;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="23" width="1300" height="38" />
+          <mxGeometry as="geometry" x="40" y="23" width="2100" height="38" />
         </mxCell>
         <mxCell id="c2" value="Вариант • Сопровождение производственной партии керамической плитки" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=14;fontStyle=0;fontColor=#58707A;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="68" width="1300" height="25" />
+          <mxGeometry as="geometry" x="40" y="68" width="2100" height="25" />
         </mxCell>
         <mxCell id="c3" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=1;arcSize=12;html=1;whiteSpace=wrap;fillColor=#DCE7E8;strokeColor=none;fontSize=1;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="105" width="1300" height="2" />
+          <mxGeometry as="geometry" x="40" y="105" width="2100" height="2" />
         </mxCell>
         <mxCell id="c4" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=0;html=1;whiteSpace=wrap;fillColor=#F8FBFC;strokeColor=#9FB3BD;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="205" y="130" width="972" height="705" />
+          <mxGeometry as="geometry" x="430" y="130" width="1510" height="1810" />
         </mxCell>
-        <mxCell id="c5" value="Граница системы Ceramika" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#20343D;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="229" y="147" width="490" height="30" />
+        <mxCell id="c5" value="Граница системы Ceramika" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#20343D;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="465" y="145" width="1000" height="36" />
         </mxCell>
-        <mxCell id="c6" value="Технолог" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="76" y="234" width="72" height="88" />
+        <mxCell id="c6" value="Сотрудник" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="215" y="195" width="94" height="116" />
         </mxCell>
-        <mxCell id="c7" value="Оператор линии" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1232" y="249" width="72" height="88" />
+        <mxCell id="c7" value="Технолог" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="215" y="490" width="94" height="116" />
         </mxCell>
-        <mxCell id="c8" value="Лаборант" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="76" y="548" width="72" height="88" />
+        <mxCell id="c8" value="Лаборант" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="215" y="905" width="94" height="116" />
         </mxCell>
-        <mxCell id="c9" value="Источник телеметрии" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1232" y="628" width="72" height="88" />
+        <mxCell id="c9" value="Оператор линии" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="215" y="1310" width="94" height="116" />
         </mxCell>
-        <mxCell id="c10" value="Утвердить версии рецептур&lt;br&gt;и технологической карты" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="274" y="195" width="226" height="69" />
+        <mxCell id="c10" value="Мастер смены" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="215" y="1695" width="94" height="116" />
         </mxCell>
-        <mxCell id="c11" value="Сформировать&lt;br&gt;и запустить партию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="274" y="292" width="226" height="69" />
+        <mxCell id="c11" value="Источник телеметрии" style="fontFamily=Segoe UI;fontColor=#20343D;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#20343D;fontSize=17;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2015" y="1760" width="94" height="116" />
         </mxCell>
-        <mxCell id="c12" value="Анализировать журнал&lt;br&gt;и обработать инцидент" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="274" y="388" width="226" height="69" />
+        <mxCell id="c12" value="Войти в систему" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="210" width="350" height="86" />
         </mxCell>
-        <mxCell id="c13" value="Назначить испытание&lt;br&gt;и внести измерения" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="274" y="555" width="226" height="69" />
+        <mxCell id="c13" value="01 · Нормативы и производство" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#446886;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="325" width="1350" height="28" />
         </mxCell>
-        <mxCell id="c14" value="Допустить&lt;br&gt;или заблокировать партию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="274" y="670" width="226" height="69" />
+        <mxCell id="c14" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=1;arcSize=12;html=1;whiteSpace=wrap;fillColor=#DCE7E8;strokeColor=none;fontSize=1;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="359" width="1390" height="2" />
         </mxCell>
-        <mxCell id="c15" value="Проверить готовность&lt;br&gt;испытания и нормативы" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="592" y="670" width="226" height="69" />
+        <mxCell id="c15" value="Утвердить версии рецептур&lt;br&gt;и технологической карты" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="385" width="350" height="86" />
         </mxCell>
-        <mxCell id="c16" value="Открыть маршрут партии" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="900" y="191" width="226" height="69" />
+        <mxCell id="c16" value="Сформировать&lt;br&gt;и запустить партию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="500" width="350" height="86" />
         </mxCell>
-        <mxCell id="c17" value="Начать и завершить&lt;br&gt;операцию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="900" y="294" width="226" height="69" />
+        <mxCell id="c17" value="Анализировать журнал&lt;br&gt;и обработать инцидент" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="615" width="350" height="86" />
         </mxCell>
-        <mxCell id="c18" value="Проверить факт&lt;br&gt;и записать событие" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="592" y="294" width="226" height="69" />
+        <mxCell id="c18" value="Проверить готовность партии&lt;br&gt;и действующие нормативы" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="500" width="350" height="86" />
         </mxCell>
-        <mxCell id="c19" value="Зарегистрировать инцидент" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="900" y="397" width="226" height="69" />
+        <mxCell id="c19" value="Экспортировать отчёт&lt;br&gt;о выпуске партии" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#EDF4FA;strokeColor=#446886;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="615" width="350" height="86" />
         </mxCell>
-        <mxCell id="c20" value="Просмотреть температуру&lt;br&gt;по зонам печи" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="900" y="522" width="226" height="69" />
+        <mxCell id="c20" value="02 · Лабораторный контроль" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#126854;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="745" width="1350" height="28" />
         </mxCell>
-        <mxCell id="c21" value="Передать показания печи" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=14;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="900" y="662" width="226" height="69" />
+        <mxCell id="c21" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=1;arcSize=12;html=1;whiteSpace=wrap;fillColor=#DCE7E8;strokeColor=none;fontSize=1;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="779" width="1390" height="2" />
         </mxCell>
-        <mxCell id="c22" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c6" target="c10">
+        <mxCell id="c22" value="Назначить испытание" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="805" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c23" value="Внести измерения&lt;br&gt;и завершить испытание" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="920" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c24" value="Допустить или&lt;br&gt;заблокировать партию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1035" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c25" value="Проверить готовность&lt;br&gt;испытания и нормативы" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="1035" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c26" value="03 · Исполнение технологического маршрута" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#126854;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="1165" width="1350" height="28" />
+        </mxCell>
+        <mxCell id="c27" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=1;arcSize=12;html=1;whiteSpace=wrap;fillColor=#DCE7E8;strokeColor=none;fontSize=1;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="1199" width="1390" height="2" />
+        </mxCell>
+        <mxCell id="c28" value="Открыть маршрут партии" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1225" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c29" value="Начать и завершить&lt;br&gt;операцию" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1340" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c30" value="Зарегистрировать инцидент" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1455" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c31" value="Проверить факт&lt;br&gt;и записать событие" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="1340" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c32" value="Просмотреть температуру&lt;br&gt;по зонам печи" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="1225" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c33" value="04 · Мобильный обход и телеметрия" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#B98134;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="1575" width="1350" height="28" />
+        </mxCell>
+        <mxCell id="c34" value="" style="fontFamily=Segoe UI;fontColor=#20343D;rounded=1;arcSize=12;html=1;whiteSpace=wrap;fillColor=#DCE7E8;strokeColor=none;fontSize=1;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="490" y="1609" width="1390" height="2" />
+        </mxCell>
+        <mxCell id="c35" value="Выполнить обход линии" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1635" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c36" value="Внести показания&lt;br&gt;контрольных точек" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="1635" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c37" value="Добавить замечание" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1080" y="1750" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c38" value="Завершить обход&lt;br&gt;и сформировать отчёт" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#E8F4EF;strokeColor=#126854;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="530" y="1780" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c39" value="Передать показания печи" style="fontFamily=Segoe UI;fontColor=#20343D;ellipse;html=1;whiteSpace=wrap;fillColor=#FFF3DA;strokeColor=#B98134;fontSize=16;strokeWidth=1.3;spacing=5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1530" y="1775" width="350" height="86" />
+        </mxCell>
+        <mxCell id="c40" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c6" target="c12">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c23" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c6" target="c11">
+        <mxCell id="c41" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.64;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;" edge="1" parent="1" source="c7" target="c6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="175" y="548" />
+              <mxPoint x="175" y="269.24" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c42" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.52;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;" edge="1" parent="1" source="c8" target="c6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="145" y="963" />
+              <mxPoint x="145" y="255.32" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c43" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.4;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;" edge="1" parent="1" source="c9" target="c6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="115" y="1368" />
+              <mxPoint x="115" y="241.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c44" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.28;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;" edge="1" parent="1" source="c10" target="c6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="85" y="1753" />
+              <mxPoint x="85" y="227.48000000000002" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c45" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c7" target="c15">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c24" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c6" target="c12">
+        <mxCell id="c46" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c7" target="c16">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c25" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c8" target="c13">
+        <mxCell id="c47" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c7" target="c17">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c26" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c8" target="c14">
+        <mxCell id="c48" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c8" target="c22">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c27" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c7" target="c16">
+        <mxCell id="c49" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c8" target="c23">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c28" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c7" target="c17">
+        <mxCell id="c50" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c8" target="c24">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c29" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c7" target="c19">
+        <mxCell id="c51" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c9" target="c28">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c30" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c7" target="c20">
+        <mxCell id="c52" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c9" target="c29">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c31" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;" edge="1" parent="1" source="c9" target="c21">
+        <mxCell id="c53" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c9" target="c30">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c32" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="c17" target="c18">
+        <mxCell id="c54" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c10" target="c35">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c33" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="c14" target="c15">
+        <mxCell id="c55" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c10" target="c38">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="c34" value="Доступ участников к операциям определяется ролью. Результат процесса — выпуск или блокировка партии." style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=14;fontStyle=0;fontColor=#58707A;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="870" width="1280" height="34" />
+        <mxCell id="c56" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c7" target="c19">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="365" y="583" />
+              <mxPoint x="365" y="730" />
+              <mxPoint x="1000" y="730" />
+              <mxPoint x="1000" y="658" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c57" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c9" target="c32">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="385" y="1327" />
+              <mxPoint x="385" y="1205" />
+              <mxPoint x="1010" y="1205" />
+              <mxPoint x="1010" y="1268" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c58" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c9" target="c35">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="375" y="1409" />
+              <mxPoint x="375" y="1678" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c59" value="" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.7;endArrow=none;" edge="1" parent="1" source="c11" target="c39">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c60" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;" edge="1" parent="1" source="c16" target="c18">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c61" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;" edge="1" parent="1" source="c24" target="c25">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c62" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;" edge="1" parent="1" source="c29" target="c31">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c63" value="«include»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;" edge="1" parent="1" source="c35" target="c36">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c64" value="«extend»" style="fontFamily=Segoe UI;fontColor=#20343D;html=1;strokeColor=#607D87;strokeWidth=1.25;fontSize=12;labelBackgroundColor=#FFFFFF;endArrow=none;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;" edge="1" parent="1" source="c37" target="c36">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="c65" value="Сплошная линия — участие актёра  ·  Пустой треугольник — обобщение  ·  «include» — обязательный сценарий  ·  «extend» — условное расширение" style="fontFamily=Segoe UI;fontColor=#20343D;text;html=1;align=left;verticalAlign=middle;fontSize=15;fontStyle=0;fontColor=#58707A;whiteSpace=wrap;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1970" width="2100" height="32" />
         </mxCell>
       </root>
     </mxGraphModel>

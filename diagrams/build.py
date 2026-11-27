@@ -87,42 +87,86 @@ class Sheet:
 
 
 def use_cases():
-    s = Sheet("uc", "UML · Прецеденты", "Диаграмма вариантов использования", 1380, 980)
-    s.box("", 205, 130, 972, 705, fill="#F8FBFC", stroke="#9FB3BD", shape="rounded=0;")
-    s.label("Граница системы Ceramika", 229, 147, 490, 30, 18, True)
+    s = Sheet("uc", "UML · Прецеденты", "Диаграмма вариантов использования", 2180, 2050)
+    s.box("", 430, 130, 1510, 1810, fill="#F8FBFC", stroke="#9FB3BD", shape="rounded=0;")
+    s.label("Граница системы Ceramika", 465, 145, 1000, 36, 22, True)
 
     def actor(label, x, y):
-        return s.box(label, x, y, 72, 88, fill="#FFFFFF", stroke=INK, size=14,
+        return s.box(label, x, y, 94, 116, fill="#FFFFFF", stroke=INK, size=17,
                      shape="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;")
 
-    def case(label, x, y, color=TEAL, shade=TEAL_BG, width=226):
-        return s.box(label, x, y, width, 69, fill=shade, stroke=color, shape="ellipse;")
+    def case(label, x, y, color=TEAL, shade=TEAL_BG):
+        return s.box(label, x, y, 350, 86, fill=shade, stroke=color, size=16, shape="ellipse;")
 
-    tech = actor("Технолог", 76, 234)
-    operator = actor("Оператор линии", 1232, 249)
-    lab = actor("Лаборант", 76, 548)
-    oven = actor("Источник телеметрии", 1232, 628)
-    recipe = case("Утвердить версии рецептур<br>и технологической карты", 274, 195, BLUE, BLUE_BG)
-    launch = case("Сформировать<br>и запустить партию", 274, 292, BLUE, BLUE_BG)
-    monitor = case("Анализировать журнал<br>и обработать инцидент", 274, 388, BLUE, BLUE_BG)
-    appoint = case("Назначить испытание<br>и внести измерения", 274, 555)
-    decision = case("Допустить<br>или заблокировать партию", 274, 670)
-    check_lab = case("Проверить готовность<br>испытания и нормативы", 592, 670)
-    browse = case("Открыть маршрут партии", 900, 191)
-    execute = case("Начать и завершить<br>операцию", 900, 294)
-    values = case("Проверить факт<br>и записать событие", 592, 294)
-    incident = case("Зарегистрировать инцидент", 900, 397, GOLD, GOLD_BG)
-    live = case("Просмотреть температуру<br>по зонам печи", 900, 522, GOLD, GOLD_BG)
-    measure = case("Передать показания печи", 900, 662, GOLD, GOLD_BG)
-    for a, items in ((tech, (recipe, launch, monitor)), (lab, (appoint, decision)),
-                     (operator, (browse, execute, incident, live)), (oven, (measure,))):
-        for item in items:
-            s.edge(a, item)
-    dependency = "dashed=1;endArrow=open;endFill=0;"
-    s.edge(execute, values, value="«include»", style=dependency)
-    s.edge(decision, check_lab, value="«include»", style=dependency)
-    s.label("Доступ участников к операциям определяется ролью. Результат процесса — выпуск или блокировка партии.",
-            40, 870, 1280, 34, 14, color=MUTED)
+    def section(label, y, color):
+        s.label(label, 490, y, 1350, 28, 17, True, color=color)
+        s.box("", 490, y+34, 1390, 2, fill="#DCE7E8", stroke="none", size=1)
+
+    employee = actor("Сотрудник", 215, 195)
+    tech = actor("Технолог", 215, 490)
+    lab = actor("Лаборант", 215, 905)
+    operator = actor("Оператор линии", 215, 1310)
+    master = actor("Мастер смены", 215, 1695)
+    sensor = actor("Источник телеметрии", 2015, 1760)
+
+    login = case("Войти в систему", 530, 210, BLUE, BLUE_BG)
+    section("01 · Нормативы и производство", 325, BLUE)
+    recipe = case("Утвердить версии рецептур<br>и технологической карты", 530, 385, BLUE, BLUE_BG)
+    launch = case("Сформировать<br>и запустить партию", 530, 500, BLUE, BLUE_BG)
+    monitor = case("Анализировать журнал<br>и обработать инцидент", 530, 615, BLUE, BLUE_BG)
+    check_ready = case("Проверить готовность партии<br>и действующие нормативы", 1080, 500, BLUE, BLUE_BG)
+    report = case("Экспортировать отчёт<br>о выпуске партии", 1080, 615, BLUE, BLUE_BG)
+
+    section("02 · Лабораторный контроль", 745, TEAL)
+    appoint = case("Назначить испытание", 530, 805)
+    measure_lab = case("Внести измерения<br>и завершить испытание", 530, 920)
+    decision = case("Допустить или<br>заблокировать партию", 530, 1035)
+    check_lab = case("Проверить готовность<br>испытания и нормативы", 1080, 1035)
+
+    section("03 · Исполнение технологического маршрута", 1165, TEAL)
+    browse = case("Открыть маршрут партии", 530, 1225)
+    execute = case("Начать и завершить<br>операцию", 530, 1340)
+    incident = case("Зарегистрировать инцидент", 530, 1455, GOLD, GOLD_BG)
+    values = case("Проверить факт<br>и записать событие", 1080, 1340)
+    live = case("Просмотреть температуру<br>по зонам печи", 1080, 1225, GOLD, GOLD_BG)
+
+    section("04 · Мобильный обход и телеметрия", 1575, GOLD)
+    inspect = case("Выполнить обход линии", 530, 1635)
+    readings = case("Внести показания<br>контрольных точек", 1080, 1635)
+    issue = case("Добавить замечание", 1080, 1750, GOLD, GOLD_BG)
+    finish = case("Завершить обход<br>и сформировать отчёт", 530, 1780)
+    telemetry = case("Передать показания печи", 1530, 1775, GOLD, GOLD_BG)
+
+    assoc = "strokeWidth=1.7;endArrow=none;"
+    dependency = "dashed=1;endArrow=open;endFill=0;strokeWidth=1.6;fontSize=14;"
+    general = "endArrow=block;endFill=0;endSize=16;strokeWidth=1.6;"
+    # A common actor inherits authentication; specialised roles use their own operations.
+    s.edge(employee, login, style=assoc, exit_at=(1,.5), entry_at=(0,.5))
+    for actor_id, y, lane, entry in (
+        (tech,548,175,.64), (lab,963,145,.52),
+        (operator,1368,115,.40), (master,1753,85,.28)
+    ):
+        s.edge(actor_id, employee, style=general, exit_at=(0,.5), entry_at=(0,entry),
+               points=[(lane,y),(lane,195+116*entry)])
+
+    for source, targets in (
+        (tech,(recipe,launch,monitor)), (lab,(appoint,measure_lab,decision)),
+        (operator,(browse,execute,incident)), (master,(inspect,finish))
+    ):
+        for target in targets:
+            s.edge(source,target,style=assoc,exit_at=(1,.5),entry_at=(0,.5))
+    s.edge(tech, report, style=assoc, exit_at=(1,.80), entry_at=(0,.5),
+           points=[(365,583),(365,730),(1000,730),(1000,658)])
+    s.edge(operator, live, style=assoc, exit_at=(1,.15), entry_at=(0,.5),
+           points=[(385,1327),(385,1205),(1010,1205),(1010,1268)])
+    s.edge(operator, inspect, style=assoc, exit_at=(1,.85), entry_at=(0,.5),
+           points=[(375,1409),(375,1678)])
+    s.edge(sensor,telemetry,style=assoc,exit_at=(0,.5),entry_at=(1,.5))
+    for source,target in ((launch,check_ready),(decision,check_lab),(execute,values),(inspect,readings)):
+        s.edge(source,target,value="«include»",style=dependency,exit_at=(1,.5),entry_at=(0,.5))
+    s.edge(issue,readings,value="«extend»",style=dependency,exit_at=(.5,0),entry_at=(.5,1))
+    s.label("Сплошная линия — участие актёра  ·  Пустой треугольник — обобщение  ·  «include» — обязательный сценарий  ·  «extend» — условное расширение",
+            40, 1970, 2100, 32, 15, color=MUTED)
 
 
 def classes():
